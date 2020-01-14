@@ -10,13 +10,12 @@ headers = {"User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
 page = requests.get(url=URL, headers= headers)
 
 soup = BeautifulSoup(page.content, 'html.parser')
-title = soup.find(id="shop-product-title-a677fcee-e6ea-49d2-a61c-1f0f25946e41").get_text()
+title = soup.find("div", {"class": "shop-product-title"}).get_text()
 title = title.split("if ('")[0]
 
+price = soup.find("div", {"class": "priceView-hero-price priceView-customer-price"}).get_text()
+price = float(price[1:4])
 
-# price = soup.find("div", {"class": "priceView-hero-price priceView-customer-price"}).get_text()
-# price = float(price[1:4])
-price = 200
 price_list = []
 price_list.append(price)
 
@@ -25,7 +24,7 @@ def check_price():
 
     soup = BeautifulSoup(page.content, 'html.parser')
 
-    title = soup.find(id="shop-product-title-a677fcee-e6ea-49d2-a61c-1f0f25946e41").get_text()
+    title = soup.find("div", {"class": "shop-product-title"}).get_text()
     title = title.split("if ('")[0]
 
 
@@ -61,7 +60,3 @@ def send_email():
 
 check_price()
         
-
-
-
-# %%
