@@ -44,14 +44,14 @@ def send_email():
     server.ehlo()
     server.starttls()
     server.ehlo()
-    server.login('binayraut8@gmail.com','hmzhcdnpcpgitmet')
+    server.login('*******@gmail.com','**********')
     subject = "Acer Monitor Price Fell Down!"
     body = f"Acer monitor's price in Best Buy fell down. New price is {price_list[-1]}"
 
     msg = f"Subject: {subject}\n\n{body}"
     server.sendmail(
-        'binayraut8@gmail.com',
-        'binay0009@hotmail.com',
+        '**********@gmail.com',
+        '********@hotmail.com',
         msg
     )
     print("Email sent")
